@@ -7,6 +7,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let form = document.querySelector(".form");
   let modalBtn = form.querySelector(".modal-btn");
 
+  function closeModal() {
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+  }
+
   for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function (e) {
       e.preventDefault();
@@ -20,9 +25,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   modalClose.addEventListener("click", function (e) {
     event.preventDefault();
-
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
+    closeModal();
   });
 
   modalBtn.addEventListener("click", function (e) {
@@ -37,14 +40,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-          name: inputName.value,
-          telephone: inputTel.value,
-          email: inputEmail.value,
-          item: itemToBuy.innerText
+        name: inputName.value,
+        telephone: inputTel.value,
+        email: inputEmail.value,
+        item: itemToBuy.innerText,
       }),
     });
 
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
+    closeModal();
+  });
+
+  overlay.addEventListener("click", function (e) {
+    e.preventDefault();
+    closeModal();
   });
 });
