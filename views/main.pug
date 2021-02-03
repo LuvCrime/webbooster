@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    link(rel='stylesheet', href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous", type='text/css')
+    link(rel='stylesheet', href='/public/styles.css', type='text/css')
+    script(type="text/javascript", src="/public/script.js")
+    <title>Webbooster</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    .wrapper 
+        each item in product
+            .item
+                .item-name #{item.name}
+                .item-img
+                     img(src=item.img)
+                .item-price #{item.price} &#8381
+                input(
+                    type="submit"
+                    value="Купить"
+                    class="btn btn-primary item-btn"
+                ) 
+        .modal-window
+            img.modal-close(
+                src="/public/img/close.png"
+            )
+            form.form
+                label(for="name") Имя:
+                input(
+                    type="text"
+                    name="name"
+                    id="name"
+                    autocomplete="off"
+                    class="form-info"
+                ) 
+                label(for="telephone") Телефон:
+                input(
+                    type="tel"
+                    name="telephone"
+                    id="tel"
+                    autocomplete="off"
+                    class="form-info"
+                )
+                label(for="email") Почта:
+                input(
+                    type="email"
+                    name="email"
+                    id="email"
+                    autocomplete="off"
+                    class="form-info"
+                )
+                p.item-to-buy Название товара:
+                p.item-to-buy-name
+                input(
+                    type="submit"
+                    value="Купить"
+                    class="btn btn-primary modal-btn"
+                ) 
+        .overlay
+</body>
+<html>
